@@ -18,10 +18,8 @@ contract WavePortal {
     }
 
     function getTotalWaves () public view returns (uint256) {
-        uint i = 0;
-        for (i ; i < wavers.length; i+=1) {
         console.log('we have %d total waves', totalWaves);
         return totalWaves;
-        }
+    
     }
 }
