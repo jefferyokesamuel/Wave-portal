@@ -1,11 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 const App = () => {
+
+  const [currentAccount, setCurrentAccount] = useState("");
+
   const checkIfWalletIsConnected = () => {
     /*
     * First make sure we have access to window.ethereum
     */
+   
     const { ethereum } = window;
 
     if (!ethereum) {
@@ -14,10 +18,16 @@ const App = () => {
       console.log("We have the ethereum object", ethereum);
     }
   }
+  // CHeck if we can access the users Wallet
+  const accounts = await ethereum.request({ method: "eth_accounts" });
 
-  /*
-  * This runs our function when the page loads.
-  */
+  if(accounts.length !== 0) {
+    const account = accounts[0]
+    console.log("Found an authorised account", account)
+    setCurrentAccount(account)
+  }
+
+  //This runs our function when the page loads.
   useEffect(() => {
     checkIfWalletIsConnected();
   }, [])
@@ -26,11 +36,11 @@ const App = () => {
     <div className="mainContainer">
       <div className="dataContainer">
         <div className="header">
-        Yoooo Welcome to the Wave Portal👋 
+        Welcome to the Wave Portal👨🏾‍💻👋 
         </div>
 
         <div className="bio">
-          I am farza and I worked on self-driving cars so that's pretty cool right? Connect your Ethereum wallet and wave at me!
+          Hey im Jeffery a Blockchain Developer, I love building Dope projects, You can connect your Ethereum wallet and wave at me!
         </div>
 
         <button className="waveButton" onClick={null}>
