@@ -6,7 +6,7 @@ import abi from "./utils/WavePortal.json";
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
 
-  const contractAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+  const contractAddress = "0x04dEb87621d7D5093f026ee65Fd5dAcbe52f44d4"
   const contractABI = abi.abi
 
   const checkIfWalletIsConnected = async () => {
@@ -67,6 +67,16 @@ const App = () => {
   
           let count = await wavePortalContract.getTotalWaves();
           console.log("Retrieved total wave count...", count.toNumber());
+
+
+        //Executing Waves in the Contract
+        const waveTxn = await wavePortalContract.wave()
+        console.log('Mining', waveTxn.hash)
+
+        await waveTxn.wait()
+        console.log('MIned', waveTxn.hash)
+
+        count = await wavePortalContract.getTotalWaves()
         } else {
           console.log("Ethereum object doesn't exist!");
         }
