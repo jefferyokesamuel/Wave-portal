@@ -12,6 +12,7 @@ const App = () => {
 
 
   const getAllWaves = async () => {
+    
     try {
       const { ethereum } = window
 
@@ -24,9 +25,21 @@ const App = () => {
         const waves = wavePortalContract.getAllWaves()
 
         //Cleaning up the returned array for the UI
+        let wavesCleaned = [];
+        waves.forEach(wave => {
+          address: wave.waver,
+          timestamp: new Date(wave.timestamp * 1000),
+          message: wave.message
+        })
+
+
+        setAllWaves(wavesCleaned)
       } else {
         console.log('Ethereum object does not exist')
+      }  catch (error) {
+        console.log(error);
       }
+    }
 
 
     }
