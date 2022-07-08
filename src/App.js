@@ -54,10 +54,20 @@ const App = () => {
         const { ethereum } = window;
 
         if (ethereum) {
+          const provider = new ethers.provider3.Web3provider(ethereum)
+          const signer = provider.getSigner()
+          const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer)
 
+          let count = await wavePortalContract.getTotalWaves()
+          console.log('Retrieved total wave count... ', count.toNumber())
+        } else {
+          console.log('Ethereum object does not exist')
+        }
+        } catch (error) {
+        console.log(error)
         }
       }
-    }
+  
   }
 
   useEffect(() => {
