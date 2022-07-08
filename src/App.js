@@ -49,7 +49,15 @@ const App = () => {
       console.log(error)
     }
 
-    
+    const wave = async () => {
+      try {
+        const { ethereum } = window;
+
+        if (ethereum) {
+
+        }
+      }
+    }
   }
 
   useEffect(() => {
