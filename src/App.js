@@ -106,7 +106,7 @@ const App = () => {
           console.log("Retrieved total wave count...", count.toNumber());
 
           //Executing Waves in the Contract
-          const waveTxn = await wavePortalContract.wave("this is a message")
+          const waveTxn = await wavePortalContract.wave(document.getElementById("text").value)
           console.log('Mining...', waveTxn.hash)
 
           await waveTxn.wait()
@@ -152,6 +152,7 @@ const App = () => {
             Connect Wallet
           </button>
         )}
+        <input className="e-input" id="text" type="text" placeholder="Type a message and wave" />
 
         {allWaves.map((wave, index) => {
           return (
