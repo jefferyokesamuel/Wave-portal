@@ -70,7 +70,7 @@ const App = () => {
 
           //Executing Waves in the Contract
           const waveTxn = await wavePortalContract.wave()
-          console.log('Mining', waveTxn.hash)
+          console.log('Mining...', waveTxn.hash)
 
           await waveTxn.wait()
           console.log('Mined', waveTxn.hash)
