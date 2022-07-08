@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import "./App.css";
-
+ 
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
 
@@ -55,6 +55,8 @@ const App = () => {
       try {
         const { ethereum } = window;
   
+        const contractAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+        
         if (ethereum) {
           const provider = new ethers.providers.Web3Provider(ethereum);
           const signer = provider.getSigner();

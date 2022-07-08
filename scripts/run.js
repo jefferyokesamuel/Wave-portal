@@ -6,7 +6,7 @@ const main = async () => {
 
     console.log('Contract deployed to: ', waveContract.address);
     console.log('Contract deployed by: ', owner.address);
-
+ 
     let waveTest
     waveTest = await waveContract.getTotalWaves()
     
