@@ -7,11 +7,21 @@ contract WavePortal {
     uint256 totalWaves;
     address[] wavers;
 
+    event NewWave(address indexed from, uint256 timestamp, string message);
+
+    struct Wave {
+        address waver;
+        string message;
+        uint256 timestamp;
+    }
+
     constructor() {
         console.log('Yooooo');
     }
 
-    function wave () public {
+    Wave[] waves
+
+    function wave (string memory _message) public {
         totalWaves +=1;
         console.log('%s has waved', msg.sender);
         wavers.push(msg.sender);
