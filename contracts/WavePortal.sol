@@ -23,10 +23,15 @@ contract WavePortal {
 
     function wave (string memory _message) public {
         totalWaves +=1;
-        console.log('%s has waved', msg.sender);
+        console.log('%s has waved w/ message %s', msg.sender);
+        waves.push(Wave(msg.sender, _message, block.timestamp));
+        emit NewWave(msg.sender, block.timestamp, _message);
         wavers.push(msg.sender);
     }
 
+    function getAllWaves () public view returns (Wave[] memory) {
+        return waves
+    }
     function getTotalWaves () public view returns (uint256) {
         console.log('we have %d total waves', totalWaves);
         return totalWaves;
