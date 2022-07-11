@@ -20,7 +20,7 @@ const main = async () => {
 
     let waveTxn = await waveContract.wave('Hey bro')
     await waveTxn.wait()
-
+ 
     waveTxn = await waveContract.wave('Big Man')
     await waveTxn.wait()
 
