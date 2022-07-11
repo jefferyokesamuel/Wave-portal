@@ -149,7 +149,7 @@ const App = () => {
         */}
          {!currentAccount && (
           <button className="waveButton" onClick={connectWallet}>
-            Connect Wallet
+            Connect Wallet 
           </button>
         )}
         <input className="e-input" id="text" type="text" placeholder="Type a message and wave" />
