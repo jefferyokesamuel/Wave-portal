@@ -27,7 +27,7 @@ contract WavePortal {
 
         waves.push(Wave(msg.sender, _message, block.timestamp));
         emit NewWave(msg.sender, block.timestamp, _message);
-
+ 
         uint256 prizeAmount = 0.0001 ether;
         require(
             prizeAmount <= address(this).balance, 
