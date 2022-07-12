@@ -24,7 +24,13 @@ contract WavePortal {
 
     Wave[] waves;
 
+    mapping(address => uint256) public lastWavedAt;
+
     function wave (string memory _message) public { 
+      require(
+        lastWavedAt[msg.sender] + 15 minutes < block.timestamp,
+        "Wait 15m"
+    );
         totalWaves +=1;    
         console.log("%s waved w/ message %s", msg.sender, _message);
 
@@ -39,7 +45,7 @@ contract WavePortal {
          */
         if (seed < 50) {
             console.log("%s won!", msg.sender);
-
+        }
         emit NewWave(msg.sender, block.timestamp, _message);
  
         uint256 prizeAmount = 0.0001 ether;  
@@ -51,7 +57,7 @@ contract WavePortal {
         require(success, "Failed to withdraw money from contract."); 
     }
 
-    function getAllWaves () public view returns (Wave[] memory) {
+    function getAllWaves() public view returns (Wave[] memory) {
         return waves;
     }
 
