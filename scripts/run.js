@@ -26,6 +26,7 @@ const main = async () => {
     );
     console.log("contractBalance: ", hre.ether.utils.formatEther(contractBalance));
 
+    let return waves = aeait 
     // let waveTest
     // waveTest = await waveContract.getTotalWaves()
     
