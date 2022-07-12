@@ -9,6 +9,12 @@ const main = async () => {
     console.log('Contract deployed to: ', waveContract.address);
     console.log('Contract deployed by: ', owner.address);
  
+    //Testing the seed
+    const waveTxn = await waveContract.wave("This is wave #1");
+    await waveTxn.wait();
+
+    const waveTxn2 = await waveContract.wave("This is wave #2");
+    await waveTxn2.wait();
 
     // Getting the conntract balance
     let contractBalance = await hre.ethers.provider.getBalance(
