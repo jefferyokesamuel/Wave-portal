@@ -37,17 +37,17 @@ const main = async () => {
 
     // waveTest = await waveContract.getTotalWaves()
 
-    let waveTxn = await waveContract.wave('Hey bro')
-    await waveTxn.wait()
+    // let waveTxn = await waveContract.wave('Hey bro')
+    // await waveTxn.wait()
  
-    waveTxn = await waveContract.wave('Big Man')
-    await waveTxn.wait()
+    // waveTxn = await waveContract.wave('Big Man')
+    // await waveTxn.wait()
 
-    waveTxn = await waveContract.wave('Developer')
-    await waveTxn.wait()
+    // waveTxn = await waveContract.wave('Developer')
+    // await waveTxn.wait()
 
-    let wavetotal = await waveContract.getAllWaves()
-    console.log(wavetotal)
+    // let wavetotal = await waveContract.getAllWaves()
+    // console.log(wavetotal)
 };
 
 const runMain = async () => {
