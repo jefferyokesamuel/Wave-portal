@@ -30,9 +30,9 @@ contract WavePortal {
 
         uint256 prizeAmount = 0.0001 ether;
         require(
-            prizeAmount <= address(this).balance
-        )
-        wavers.push(msg.sender);
+            prizeAmount <= address(this).balance,
+            "Try to withdraw more money than the contract has"
+        );
     }
 
     function getAllWaves () public view returns (Wave[] memory) {
