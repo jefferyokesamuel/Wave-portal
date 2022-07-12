@@ -15,7 +15,7 @@ contract WavePortal {
         uint256 timestamp;
     }
 
-    constructor() {
+    constructor() payable {
         console.log('Yooooo');
     }
 
