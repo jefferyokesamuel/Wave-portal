@@ -11,7 +11,7 @@ const main = async () => {
  
 
     // Getting the conntract balance
-    let contractBalance = hre.ethers.provider.getBalance(
+    let contractBalance = await hre.ethers.provider.getBalance(
         waveContract.address
     );
     console.log("Contract balance: ", hre.ether.utils.formatEther(contractBalance));
@@ -20,8 +20,11 @@ const main = async () => {
     let trial = await waveContract.wave("hey")
     await trial.wait()
 
-    //Gertting
-
+    //Gertting balance to see what happened
+    contractBalance = await hre.ethers.provider.getBalance(
+        waveContract.address
+    );
+    console.log("contractBalance: ", hre.ether.utils.formatEther(contractBalance));
 
     // let waveTest
     // waveTest = await waveContract.getTotalWaves()
