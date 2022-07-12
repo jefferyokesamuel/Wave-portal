@@ -16,10 +16,11 @@ const main = async () => {
     );
     console.log("Contract balance: ", hre.ether.utils.formatEther(contractBalance));
 
+    //Sending a wave
+    let trial = await waveContract.wave("hey")
+    await trial.wait()
 
-    
-
-
+    //Gertting
 
 
     // let waveTest
