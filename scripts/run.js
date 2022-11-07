@@ -9,6 +9,7 @@ const main = async () => {
     console.log('Contract deployed to: ', waveContract.address);
     console.log('Contract deployed by: ', owner.address);
  
+   
     //Testing the seed
     const waveTxn = await waveContract.wave("This is wave #1");
     await waveTxn.wait();
